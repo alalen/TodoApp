@@ -1,0 +1,835 @@
+/* ============================
+   RESET & BASE
+   ============================ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", Arial, sans-serif;
+  background: #eef3f6;
+  color: #182026;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* ============================
+   HEADER
+   ============================ */
+.header {
+  background: linear-gradient(135deg, #123f52 0%, #0d3141 60%, #091e28 100%);
+  color: white;
+  padding: 24px 20px 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(12, 48, 65, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(255,255,255,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+
+
+.header h1 {
+  margin: 0 0 18px;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.header nav {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: all 0.2s ease;
+  letter-spacing: 0.2px;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+  color: white;
+  border-color: rgba(255,255,255,0.25);
+  transform: translateY(-1px);
+}
+
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-color: rgba(255,255,255,0.45);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+/* ============================
+   LAYOUT
+   ============================ */
+.container {
+  max-width: 980px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.page {
+  background: white;
+  padding: 36px;
+  border-radius: 20px;
+  box-shadow: 0 4px 32px rgba(18, 63, 82, 0.09);
+}
+
+.page h2 {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f303e;
+  letter-spacing: -0.3px;
+}
+
+.sub-text {
+  color: #7b8f97;
+  margin-bottom: 28px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ============================
+   DASHBOARD
+   ============================ */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.dashboard-card {
+  background: linear-gradient(145deg, #f4f8fa, #edf2f5);
+  padding: 24px 20px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid rgba(18, 63, 82, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(18, 63, 82, 0.12);
+}
+
+.dashboard-card:nth-child(1) { border-top: 3px solid #5ba4c0; }
+.dashboard-card:nth-child(2) { border-top: 3px solid #4caf7d; }
+.dashboard-card:nth-child(3) { border-top: 3px solid #e0953a; }
+.dashboard-card:nth-child(4) { border-top: 3px solid #9b6bbf; }
+
+.dashboard-card h3 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #7b8f97;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dashboard-card strong {
+  font-size: 32px;
+  font-weight: 800;
+  color: #123f52;
+  letter-spacing: -1px;
+}
+
+
+/* ============================
+   PROGRESS
+   ============================ */
+.progress-box {
+  margin: 32px 0;
+  padding: 24px;
+  background: #f4f8fa;
+  border-radius: 16px;
+  border: 1px solid rgba(18,63,82,0.07);
+}
+
+.progress-box p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #123f52;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background-color: #dce5ea;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2d7fa3, #123f52);
+  border-radius: 999px;
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.progress-percent {
+  font-size: 18px;
+  font-weight: 800;
+  color: #123f52;
+}
+
+.progress-meta {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #8fa3ae;
+  font-weight: 600;
+}
+
+/* ============================
+   MAIN BUTTON (Link)
+   ============================ */
+.main-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  text-decoration: none;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1a5570, #123f52);
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(18, 63, 82, 0.25);
+}
+
+.main-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(18, 63, 82, 0.3);
+}
+
+/* ============================
+   TODO FORM
+   ============================ */
+.todo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.todo-form-text {
+  width: 100%;
+}
+
+.todo-form-row {
+  display: grid;
+  grid-template-columns: 160px 110px 110px auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.todo-form-row button {
+  white-space: nowrap;
+  height: 46px;
+  font-size: 14px;
+  padding: 0 24px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1a5570, #123f52);
+  box-shadow: 0 4px 14px rgba(18, 63, 82, 0.25);
+}
+
+.todo-form input,
+.todo-form select,
+.todo-tools input,
+form input,
+form select {
+  height: 46px;
+  padding: 0 14px;
+  border: 1.5px solid #dce5ea;
+  border-radius: 12px;
+  font-size: 14px;
+  background-color: #fafcfd;
+  color: #182026;
+  transition: all 0.2s ease;
+}
+
+.todo-form input:focus,
+.todo-form select:focus,
+.todo-tools input:focus,
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: #2d7fa3;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(45, 127, 163, 0.15);
+}
+
+/* ============================
+   BUTTONS
+   ============================ */
+button {
+  height: 42px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1a5570, #123f52);
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(18, 63, 82, 0.25);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* ============================
+   TODO TOOLS
+   ============================ */
+.todo-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0;
+  padding: 16px 20px;
+  background: #f4f8fa;
+  border-radius: 14px;
+}
+
+.todo-tools input {
+  flex: 1;
+  background: white;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.filter-buttons button {
+  height: 38px;
+  padding: 0 16px;
+  font-size: 13px;
+  background: white;
+  color: #5b7a87;
+  border: 1.5px solid #dce5ea;
+  box-shadow: none;
+}
+
+.filter-buttons button:hover {
+  background: #edf2f5;
+  box-shadow: none;
+  transform: none;
+}
+
+.filter-buttons .active-filter {
+  background: linear-gradient(135deg, #1a5570, #123f52);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 3px 10px rgba(18, 63, 82, 0.2);
+}
+
+/* ============================
+   STATS
+   ============================ */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.stats p {
+  margin: 0;
+  padding: 16px 12px;
+  background: linear-gradient(145deg, #f4f8fa, #edf2f5);
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 13px;
+  color: #123f52;
+  border: 1px solid rgba(18,63,82,0.06);
+}
+
+/* ============================
+   TODO LIST
+   ============================ */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #f7f9fa;
+  border-radius: 14px;
+  border: 1px solid rgba(18,63,82,0.06);
+  border-left: 5px solid #9aa8b0;
+  transition: all 0.2s ease;
+}
+
+.todo-item:hover {
+  background: #f0f5f8;
+  transform: translateX(2px);
+  box-shadow: 0 4px 16px rgba(18, 63, 82, 0.08);
+}
+
+.priority-높음 { border-left-color: #d94c4c; }
+.priority-보통 { border-left-color: #e0a63a; }
+.priority-낮음 { border-left-color: #4f8f6f; }
+
+.todo-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.todo-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: #182026;
+  line-height: 1.4;
+}
+
+.todo-title:hover span:last-child {
+  color: #123f52;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #9aabb3 !important;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #123f52;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.badge.light {
+  background: #e5eef2;
+  color: #2d6e8a;
+}
+
+.due-date {
+  display: block;
+  margin-top: 6px;
+  color: #8fa3ae;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ============================
+   TODO BUTTONS
+   ============================ */
+.todo-buttons {
+  display: flex;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.todo-buttons button {
+  height: 36px;
+  padding: 0 14px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 9px;
+  box-shadow: none;
+}
+
+/* 상세 버튼 - 중성 */
+.todo-buttons button:nth-child(1) {
+  background: #e8eef2;
+  color: #2d6e8a;
+}
+.todo-buttons button:nth-child(1):hover {
+  background: #d6e4ec;
+  box-shadow: none;
+  transform: none;
+}
+
+/* 수정 버튼 - 파랑 */
+.todo-buttons button:nth-child(2) {
+  background: linear-gradient(135deg, #2980b9, #1f6898);
+  color: white;
+}
+.todo-buttons button:nth-child(2):hover {
+  box-shadow: 0 3px 10px rgba(41, 128, 185, 0.3);
+  transform: translateY(-1px);
+}
+
+/* 삭제 버튼 - 빨강 */
+.todo-buttons button:nth-child(3) {
+  background: linear-gradient(135deg, #e05252, #c0392b);
+  color: white;
+}
+.todo-buttons button:nth-child(3):hover {
+  box-shadow: 0 3px 10px rgba(192, 57, 43, 0.3);
+  transform: translateY(-1px);
+}
+
+/* ============================
+   EMPTY STATE
+   ============================ */
+.empty {
+  padding: 40px 24px;
+  color: #9aabb3;
+  background: #f7f9fa;
+  border-radius: 14px;
+  text-align: center;
+  font-size: 14px;
+  border: 1.5px dashed #d5e0e6;
+}
+
+/* ============================
+   DETAIL / EDIT BOX
+   ============================ */
+.detail-box {
+  padding: 24px;
+  background: #f4f8fa;
+  border-radius: 14px;
+  margin: 20px 0;
+  border: 1px solid rgba(18,63,82,0.07);
+}
+
+.detail-box h3 {
+  margin-top: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f303e;
+}
+
+/* ============================
+   CALENDAR
+   ============================ */
+.calendar-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1.5px solid #edf2f5;
+}
+
+.calendar-picker {
+  min-width: 240px;
+  padding: 20px;
+  background: linear-gradient(145deg, #f4f8fa, #edf2f5);
+  border-radius: 16px;
+  border: 1px solid rgba(18,63,82,0.07);
+}
+
+.calendar-picker label {
+  display: block;
+  margin-bottom: 8px;
+  color: #7b8f97;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.calendar-picker input {
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  border: 1.5px solid #dce5ea;
+  border-radius: 10px;
+  font-size: 14px;
+  background: white;
+  transition: all 0.2s;
+}
+
+.calendar-picker input:focus {
+  outline: none;
+  border-color: #2d7fa3;
+  box-shadow: 0 0 0 3px rgba(45, 127, 163, 0.15);
+}
+
+.calendar-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.calendar-summary div {
+  padding: 22px 24px;
+  background: linear-gradient(145deg, #f4f8fa, #edf2f5);
+  border: 1px solid rgba(18,63,82,0.07);
+  border-radius: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.calendar-summary div:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(18, 63, 82, 0.1);
+}
+
+.calendar-summary span {
+  display: block;
+  margin-bottom: 8px;
+  color: #7b8f97;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.calendar-summary strong {
+  color: #123f52;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.calendar-title {
+  margin: 24px 0 16px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #123f52;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.calendar-title::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  background: linear-gradient(#2d7fa3, #123f52);
+  border-radius: 2px;
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 800px) {
+  .todo-form,
+  .stats,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .todo-tools {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .todo-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .todo-buttons {
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+
+  .header nav {
+    flex-wrap: wrap;
+  }
+
+  .calendar-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .calendar-picker {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .calendar-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    padding: 24px 20px;
+  }
+}
+
+/* todo-form-row 모바일 추가 */
+@media (max-width: 800px) {
+  .todo-form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .todo-form-row button {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ============================
+   EDIT FORM
+   ============================ */
+.edit-header {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1.5px solid #edf2f5;
+}
+
+.edit-header h2 {
+  margin: 0 0 6px;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.edit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.edit-field label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #5b7a87;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.edit-field input,
+.edit-field select {
+  height: 46px;
+  padding: 0 14px;
+  border: 1.5px solid #dce5ea;
+  border-radius: 12px;
+  font-size: 14px;
+  background: #fafcfd;
+  color: #182026;
+  transition: all 0.2s ease;
+}
+
+.edit-field input:focus,
+.edit-field select:focus {
+  outline: none;
+  border-color: #2d7fa3;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(45, 127, 163, 0.15);
+}
+
+.edit-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1.5px solid #edf2f5;
+}
+
+.btn-cancel {
+  height: 46px;
+  padding: 0 24px;
+  background: #e8eef2;
+  color: #4a6572;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: none;
+}
+
+.btn-cancel:hover {
+  background: #d6e0e6;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-save {
+  height: 46px;
+  padding: 0 28px;
+  background: linear-gradient(135deg, #1a5570, #123f52);
+  color: white;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 4px 14px rgba(18, 63, 82, 0.25);
+}
+
+.btn-save:hover {
+  box-shadow: 0 6px 18px rgba(18, 63, 82, 0.32);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 800px) {
+  .edit-row {
+    grid-template-columns: 1fr;
+  }
+
+  .edit-actions {
+    flex-direction: column-reverse;
+  }
+
+  .btn-cancel,
+  .btn-save {
+    width: 100%;
+  }
+}

@@ -1,0 +1,503 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, "Pretendard", sans-serif;
+  background: #eef3f6;
+  color: #182026;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.header {
+  background: linear-gradient(135deg, #123f52, #0d3141);
+  color: white;
+  padding: 28px 20px 24px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0 0 16px;
+  font-size: 34px;
+}
+
+.header nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+.header a:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+.container {
+  max-width: 980px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.page {
+  background: white;
+  padding: 34px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(18, 63, 82, 0.12);
+}
+
+.page h2 {
+  margin-top: 0;
+  font-size: 26px;
+}
+
+.todo-form {
+  display: grid;
+  grid-template-columns: 1fr 120px 120px;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.todo-form input,
+.todo-form select,
+.todo-tools input,
+form input,
+form select {
+  height: 46px;
+  padding: 0 14px;
+  border: 1px solid #ccd6dd;
+  border-radius: 10px;
+  font-size: 14px;
+  background-color: white;
+}
+
+.todo-form input:focus,
+.todo-form select:focus,
+.todo-tools input:focus,
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: #123f52;
+  box-shadow: 0 0 0 3px rgba(18, 63, 82, 0.12);
+}
+
+.todo-form button {
+  grid-column: 1 / -1;
+}
+
+button,
+.main-button {
+  border: none;
+  border-radius: 10px;
+  background-color: #123f52;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button {
+  height: 42px;
+  padding: 0 16px;
+}
+
+button:hover,
+.main-button:hover {
+  background-color: #0b2e3d;
+  transform: translateY(-1px);
+}
+
+.todo-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.todo-tools input {
+  flex: 1;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-buttons button {
+  background-color: #edf2f5;
+  color: #123f52;
+}
+
+.filter-buttons .active-filter {
+  background-color: #123f52;
+  color: white;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.stats p {
+  margin: 0;
+  padding: 16px;
+  background-color: #f3f7f9;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 18px;
+  margin-bottom: 12px;
+  background-color: #f7f9fa;
+  border-radius: 14px;
+  border-left: 6px solid #9aa8b0;
+}
+
+.priority-높음 {
+  border-left-color: #d94c4c;
+}
+
+.priority-보통 {
+  border-left-color: #e0a63a;
+}
+
+.priority-낮음 {
+  border-left-color: #4f8f6f;
+}
+
+.todo-left span {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #8b969c;
+}
+
+.todo-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.todo-buttons button {
+  height: 38px;
+  padding: 0 13px;
+  font-size: 13px;
+}
+
+.empty {
+  padding: 24px;
+  color: #7b878d;
+  background-color: #f7f9fa;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.detail-box {
+  padding: 24px;
+  background-color: #f3f7f9;
+  border-radius: 14px;
+  margin: 20px 0;
+}
+
+.detail-box h3 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+.sub-text {
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.dashboard-card {
+  background-color: #f3f7f9;
+  padding: 22px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.dashboard-card h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+
+.dashboard-card strong {
+  font-size: 28px;
+  color: #123f52;
+}
+
+.progress-box {
+  margin: 30px 0;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 16px;
+  background-color: #e1e7eb;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #123f52;
+}
+
+.main-button {
+  display: inline-block;
+  padding: 13px 20px;
+  text-decoration: none;
+}
+
+@media (max-width: 800px) {
+
+  .todo-form,
+  .stats,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .todo-tools,
+  .todo-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .todo-buttons {
+    justify-content: flex-end;
+  }
+
+  .header nav {
+    flex-wrap: wrap;
+  }
+
+  .todo-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 999px;
+    background-color: #123f52;
+    color: white;
+    font-size: 12px;
+  }
+
+  .badge.light {
+    background-color: #e8eef2;
+    color: #123f52;
+  }
+
+  .due-date {
+    display: block;
+    margin-top: 8px;
+    color: #68757c;
+    font-size: 13px;
+  }
+
+  /* ==========================================================================
+   여기서부터 기존의 @media (max-width: 800px) 내부와 캘린더 스타일을 
+   아래 내용으로 덮어씌워 주세요. (다른 곳은 절대 건드리지 마세요!)
+   ========================================================================== */
+
+/* 1. PC/데스크톱용 달력 레이아웃 (정상적으로 밖으로 분리) */
+.calendar-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* 세로 중앙 정렬 */
+  gap: 24px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid #edf2f5; /* 구분을 위한 부드러운 경계선 */
+  padding-bottom: 20px;
+}
+
+.calendar-picker {
+  min-width: 240px;
+  padding: 18px;
+  background-color: #f3f7f9;
+  border-radius: 14px;
+}
+
+.calendar-picker label {
+  display: block;
+  margin-bottom: 8px;
+  color: #5f6d75;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.calendar-picker input {
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid #ccd6dd;
+  border-radius: 10px;
+  font-size: 14px;
+  background-color: white;
+}
+
+.calendar-picker input:focus {
+  outline: none;
+  border-color: #123f52;
+  box-shadow: 0 0 0 3px rgba(18, 63, 82, 0.12);
+}
+
+/* 요약 카드 영역을 한 줄에 깔끔하게 배치 */
+.calendar-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.calendar-summary div {
+  padding: 20px;
+  background-color: #f8fafb; /* 조금 더 화사한 톤 */
+  border: 1px solid #eef2f4;
+  border-radius: 14px;
+  box-shadow: translateY(0);
+  transition: transform 0.2s;
+}
+
+.calendar-summary div:hover {
+  transform: translateY(-2px); /* 부드러운 호버 효과 */
+}
+
+.calendar-summary span {
+  display: block;
+  margin-bottom: 6px;
+  color: #6b7880;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.calendar-summary strong {
+  color: #123f52;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.calendar-title {
+  margin: 24px 0 16px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #123f52;
+}
+
+
+/* 2. 모바일 반응형 처리 (800px 이하일 때만 작동) */
+@media (max-width: 800px) {
+  .todo-form,
+  .stats,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .todo-tools,
+  .todo-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .todo-buttons {
+    justify-content: flex-end;
+  }
+
+  .header nav {
+    flex-wrap: wrap;
+  }
+
+  .todo-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 999px;
+    background-color: #123f52;
+    color: white;
+    font-size: 12px;
+  }
+
+  .badge.light {
+    background-color: #e8eef2;
+    color: #123f52;
+  }
+
+  .due-date {
+    display: block;
+    margin-top: 8px;
+    color: #68757c;
+    font-size: 13px;
+  }
+
+  /* 모바일 화면에서의 달력 구조 조정 */
+  .calendar-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .calendar-picker {
+    width: 100%;
+  }
+
+  .calendar-summary {
+    grid-template-columns: 1fr;
+  }
+}
+}
