@@ -11,7 +11,7 @@ import TodoEdit from "./pages/TodoEdit";
 export default function App() {
   return (
     <TodoProvider>
-      <BrowserRouter basename="/alalen">
+      <BrowserRouter basename="/TodoApp">
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Todos />} />
